@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fruit Box Game</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+    }
+    canvas {
+      display: block;
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+  <!-- 필수 라이브러리 (예: CreateJS 등) 먼저 로드 -->
+  <script src="./createjs-1.0.0.min.js"></script>
+
+  <!-- 난독화 또는 추출된 게임 로직 파일 -->
+  <script src="./prettier_fruit_box.js"></script>
+
+  <!-- Canvas 초기화 코드 -->
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+
+    // CreateJS 기반이라면 stage를 생성해야 합니다.
+    const stage = new createjs.Stage(canvas);
+
+    // fruit_box.js에서 exportRoot 또는 stage 초기화가 필요한 경우:
+    // 예: createjs.Ticker, exportRoot.addChild(...), 등
+
+    createjs.Ticker.framerate = 30;
+    createjs.Ticker.addEventListener("tick", stage);
+
+    // fruit_box.js 내부에서 exportRoot 또는 init 함수가 있다면 호출
+    if (typeof init === "function") {
+      init(); // Adobe Animate에서 생성한 init 함수 호출
+    }
+  </script>
+</body>
+</html>
