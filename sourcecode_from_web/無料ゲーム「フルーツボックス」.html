@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://www.gamesaien.com/game/fruit_box_a/ -->
+<html lang="ja" class="wf-subset20190610-n4-active wf-active"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script src="./無料ゲーム「フルーツボックス」_files/f.txt"></script><script type="text/javascript" async="" src="./無料ゲーム「フルーツボックス」_files/analytics.js"></script><script type="text/javascript" async="" src="./無料ゲーム「フルーツボックス」_files/js"></script><script async="" src="./無料ゲーム「フルーツボックス」_files/js(1)"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-2781332-1');
+</script>
+
+
+<title>無料ゲーム「フルーツボックス」</title>
+<meta name="description" content="脳トレ・頭の体操用の無料パズルゲーム「フルーツボックス」">
+<meta name="apple-mobile-web-app-title" content="フルーツボックス">
+<link rel="apple-touch-icon" href="https://www.gamesaien.com/game/files/icons/icon_box_a.png" sizes="180x180">
+<link rel="stylesheet" type="text/css" href="./無料ゲーム「フルーツボックス」_files/gamepage.css">
+
+<script src="./無料ゲーム「フルーツボックス」_files/webfont.js"></script>
+<script src="./無料ゲーム「フルーツボックス」_files/createjs-1.0.0.min.js"></script>
+<script src="./無料ゲーム「フルーツボックス」_files/fruit_box_a_006_o.js"></script>
+
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("7475C6A158E3BF4B8C03C4B79FFD5BA3");
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+}
+
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+}
+
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+		var preloaderDiv = document.getElementById("_preload_div_");
+	preloaderDiv.style.display = 'none';
+	dom_overlay_container.style.display = canvas.style.display = 'block';
+	exportRoot = new lib.fruit_box_a_006();
+	stage = new lib.Stage(canvas);	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.setFPS(lib.properties.fps);
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(false,'both',false,1,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+
+//webfont.js
+function funLoadWebFont (e)
+{
+	WebFont.load ( 
+	{
+		custom :
+		{
+			families : ["subset_2019_06_10"] ,
+			urls : ["../files/gamepage-css/webfont.css"]
+		},
+		//loaded all webfonts
+		active : function ()
+		{
+			//app start
+			init ();
+		},
+		//failed
+		inactive : function ()
+		{
+		}
+	});
+}
+
+
+if (navigator.userAgent.indexOf ('iPad') > 0)
+{
+	if (window.innerWidth > window.innerHeight)
+	{
+		document.write ('<meta name="viewport" content="width=880">');
+	} else
+	{
+		document.write ('<meta name="viewport" content="width=700">');
+	}
+} else
+{
+	document.write ('<meta name="viewport" content="width=960">');
+}
+
+ef_lang = "ja";
+
+</script><meta name="viewport" content="width=960">
+
+<meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9wSqI5i0iwGdf6L1CERNdmsTPgVu44ewj8QxTBYgsv1LCPUVF7YmWOvTappqB1139jAymxUW/RO8zmMqo4zlAAAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A+d7vJfYtay4OUbdtRPZA3y7bKQLsxaMEPmxgfhBGqKXNrdkCQeJlUwqa6EBbSfjwFtJWTrWIioXeMW+y8bWAgQAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9wSqI5i0iwGdf6L1CERNdmsTPgVu44ewj8QxTBYgsv1LCPUVF7YmWOvTappqB1139jAymxUW/RO8zmMqo4zlAAAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A+d7vJfYtay4OUbdtRPZA3y7bKQLsxaMEPmxgfhBGqKXNrdkCQeJlUwqa6EBbSfjwFtJWTrWIioXeMW+y8bWAgQAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9wSqI5i0iwGdf6L1CERNdmsTPgVu44ewj8QxTBYgsv1LCPUVF7YmWOvTappqB1139jAymxUW/RO8zmMqo4zlAAAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A+d7vJfYtay4OUbdtRPZA3y7bKQLsxaMEPmxgfhBGqKXNrdkCQeJlUwqa6EBbSfjwFtJWTrWIioXeMW+y8bWAgQAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><script async="" src="./無料ゲーム「フルーツボックス」_files/ca-pub-0839959289662987"></script><script async="" src="./無料ゲーム「フルーツボックス」_files/AGSKWxVwOmapKikKZKicCdcB4ZzmwHEtLxwKCKSrOGZri85OCnBFkVKxKVjX-Uxfc4Rnu0iNxZMFQiA6KoxGb1e4ORqRKdnhFDTpUXK7IagiJuysAm5ZuqUAfbtaTZzL__jaHAWsbLDYlQ=="></script><link rel="stylesheet" href="./無料ゲーム「フルーツボックス」_files/webfont.css" media="all"><script async="" src="./無料ゲーム「フルーツボックス」_files/AGSKWxVKNS1j7tmpBdui1Gdzhi0eebd9xGxqlbTmx6Lvvob9d4kLu0xtL-F3QQhPv2o2y9QOSIwrPzGrXrJA8_9Tb7sBOwY07ZDD22E7M3_0td8swC-glL9H9FJGidmnH3UXZwIvS2sKdg=="></script><meta http-equiv="origin-trial" content="AxjhRadLCARYRJawRjMjq4U8V8okQvSnrBIJWdMajuEkN3/DfVAcLcFhMVrUWnOXagwlI8dQD84FwJDGj9ohqAYAAABveyJvcmlnaW4iOiJodHRwczovL2dvb2dsZWFkc2VydmljZXMuY29tOjQ0MyIsImZlYXR1cmUiOiJGZXRjaExhdGVyQVBJIiwiZXhwaXJ5IjoxNzI1NDA3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><script async="" src="./無料ゲーム「フルーツボックス」_files/AGSKWxXN0PvCB8nEuPnTVEFlUhtObGdtybZbxcECXKjZG2EIRhq4E0unUxyzwfToXWp2EgXg9RWgu1T6kIC4XBNBH6zpNiBDnntd7Qle6WyuAwYfoSx2rTQkpOg7qem4mSWJFDbuw96Y7Q=="></script></head>
+
+<body onload="funLoadWebFont();">
+<table id="ta1" border="0" align="center">
+  <tbody><tr>
+    <td>
+    </td>
+    <td colspan="2">
+      <script>
+      if(navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)){
+	// スマートフォン・タブレット
+	document.write ('<div style="padding-left:14px;font-size:7pt;">');	
+	}else{
+	// PC
+	document.write ('<div style="padding-left:15px;font-size:8pt;">');
+	}
+      </script><div style="padding-left:15px;font-size:8pt;">
+      <a href="https://www.gamesaien.com/">ゲーム菜園トップページ</a> / フルーツボックス &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;　<a href="https://www.gamesaien.com/game/fruit_box_a/guide/">説明</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;　<a href="https://en.gamesaien.com/game/fruit_box/">English</a>
+      </div>
+      
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td rowspan="2">
+      <div style="padding-right:20px;padding-top:10px;">
+        <!-- 左広告-->
+        <script src="./無料ゲーム「フルーツボックス」_files/ad_pc_160_600.js"></script><script async="" src="./無料ゲーム「フルーツボックス」_files/f(1).txt"></script><!-- 固定 160*600 --><ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-0839959289662987" data-ad-slot="9867863611" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_0_host" style="border: none; height: 600px; width: 160px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_0" name="aswift_0" browsingtopics="true" style="left:0;position:absolute;top:0;border:0;width:160px;height:600px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="160" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="./無料ゲーム「フルーツボックス」_files/ads.html" data-google-container-id="a!1" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="COKI_83Ds40DFanyTAId81oVig" data-load-complete="true"></iframe></div></ins><script>     (adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </td>
+    <td colspan="2">
+      <div id="animation_container" style="background-color:rgba(255,255,255, 1.00); width:720px; height:470px">
+        <canvas id="canvas" width="2520" height="1645" style="position: absolute; display: block; background-color: rgb(255, 255, 255); width: 720px; height: 470px;"></canvas>
+        <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:720px; height:470px; position: absolute; left: 0px; top: 0px; display: block;">
+        </div></div>
+        <div id="_preload_div_" style="position: relative; left: 330px; top: -265px; display: none;">
+          <img src="./無料ゲーム「フルーツボックス」_files/nowloading.gif">
+        </div>
+      <!-- 下広告-->
+   	<script src="./無料ゲーム「フルーツボックス」_files/ad_ipad_responsive.js"></script>
+    </td>
+    <td rowspan="2">
+      <div style="padding-left:20px;padding-top:10px;">
+        <!-- 右広告-->
+        <script src="./無料ゲーム「フルーツボックス」_files/ad_not-ipad_160_600.js"></script><script async="" src="./無料ゲーム「フルーツボックス」_files/f(1).txt"></script><!-- 固定 160*600 --><ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-0839959289662987" data-ad-slot="9867863611" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_1_host" style="border: none; height: 600px; width: 160px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_1" name="aswift_1" browsingtopics="true" style="left:0;position:absolute;top:0;border:0;width:160px;height:600px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="160" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="./無料ゲーム「フルーツボックス」_files/ads(1).html" data-google-container-id="a!2" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CJum_83Ds40DFa3yTAId9nIltg" data-load-complete="true"></iframe></div></ins><script>     (adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td height="200px">
+      <div style="width:370px;height200px;padding-left:20px;padding-right:20px;padding-top:10px;">
+        <!--  説明左-->
+        画面上をマウスでドラッグして、数字の合計が10になるようにリンゴを囲むパズルゲームです。(<a href="https://www.gamesaien.com/game/fruit_box_a/guide/">説明</a>)
+           <p> iPhone,iPadやAndroidでも動作します。</p>
+      </div>
+    </td>
+    <td>
+      <div style="text-align:right;padding-left:20px;padding-right:20px;padding-top:20px;height:600px">
+        <!-- 右下広告-->
+        <script src="./無料ゲーム「フルーツボックス」_files/ad_pc_200_200.js"></script><script async="" src="./無料ゲーム「フルーツボックス」_files/f(1).txt"></script><!-- 200x200, 作成済み 10/06/29 --><ins class="adsbygoogle" style="display:inline-block;width:200px;height:200px" data-ad-client="ca-pub-0839959289662987" data-ad-slot="7118900272" data-adsbygoogle-status="done" data-ad-status="filled"><div id="aswift_2_host" style="border: none; height: 200px; width: 200px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_2" name="aswift_2" browsingtopics="true" style="left:0;position:absolute;top:0;border:0;width:200px;height:200px;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="200" height="200" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="./無料ゲーム「フルーツボックス」_files/ads(2).html" data-google-container-id="a!3" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="COSR_83Ds40DFSTzTAId_okfNQ" data-load-complete="true"></iframe></div></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </td>
+  </tr>
+</tbody></table>
+
+
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_3_host" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_3" name="aswift_3" browsingtopics="true" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="./無料ゲーム「フルーツボックス」_files/ads(3).html" data-google-container-id="a!4" tabindex="0" title="Advertisement" aria-label="Advertisement" data-load-complete="true"></iframe></div></ins><fencedframe id="ps_caff" style="display: none;"></fencedframe><iframe name="googlefcPresent" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;" src="./無料ゲーム「フルーツボックス」_files/saved_resource.html"></iframe><iframe name="__tcfapiLocator" src="./無料ゲーム「フルーツボックス」_files/saved_resource(1).html" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe name="googlefcInactive" src="./無料ゲーム「フルーツボックス」_files/saved_resource(2).html" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe name="googlefcLoaded" src="./無料ゲーム「フルーツボックス」_files/saved_resource(3).html" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><div id="preloadjs-container" style="visibility: hidden; position: absolute; height: 10px; width: 10px; overflow: hidden; transform: translate(-10px, -10px);"></div><iframe src="./無料ゲーム「フルーツボックス」_files/aframe.html" width="0" height="0" style="display: none;"></iframe></body><iframe id="google_esf" name="google_esf" src="./無料ゲーム「フルーツボックス」_files/zrt_lookup_fy2021.html" style="display: none;"></iframe></html>
